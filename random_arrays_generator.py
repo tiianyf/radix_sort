@@ -7,8 +7,6 @@ from numpy.random import randint
 seed(1)
 
 # generate some integers
-
-
 size = int(input("Tamanho do vetor: "))
 lim = int(input("Limite dos números gerados: "))
 values = randint(0, lim, size)
