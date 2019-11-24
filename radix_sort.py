@@ -50,15 +50,28 @@ def radix_sort(vetor):
         casa_decimal *= 10
 
         LINHAS += 2
+    return vetor
 
 
 if __name__ == "__main__":
 
-    # receber vetor via arquivo txt
+    delimitador = ", "
 
-    vetor = [1, 99, 456, 8523, 74185, 5, 2525, 654321, 10]
-    radix_sort(vetor)
+    # recebendo vetor via arquivo txt
+    caminho = str(
+        input("\nInsira abaixo o caminho do arquivo txt a ser lido (sem aspas e com extensão .txt):\n"))
+    arquivo = open(caminho, 'r')
+    vetor = arquivo.read().split(delimitador)
+    arquivo.close()
+
+    # convertendo vetor de string em vetor de inteiros
+    vetor = list(map(int, vetor))
+
+    print(f"\nVetor original: {vetor}\n")
+
+    vetor = radix_sort(vetor)
+
+    print(f"Vetor ordenado: {vetor}")
+
     LINHAS += 1
-    print("Número de linhas executadas: ", LINHAS)
-
-
+    print(f"\nNúmero de linhas executadas: {LINHAS}\n")
